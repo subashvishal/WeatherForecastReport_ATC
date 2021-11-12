@@ -1,0 +1,25 @@
+.form-control {
+    width: 100% !important;
+}
+.input-bar {
+    display: table;
+    width: 100%;
+}
+
+.input-bar-item {
+    display: table-cell;
+}
+
+.input-bar-item > button {
+    margin-left: 5px;
+}
+    
+.width100 {
+  width: 40%;
+}
+.title {
+    text-align: center;
+}
+.weather-img {
+    height: 149px !important;
+}

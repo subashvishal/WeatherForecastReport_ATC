@@ -1,0 +1,62 @@
+<h4 class="title"><b>Subash's Angular Weather App</b></h4>
+<div class="container-fluid">
+    <div class="input-bar well">
+        <h3>Enter Zipcode:</h3>
+        <div style="display: block">
+            <div class="input-bar-item width100">
+                <input class="form-control" placeholder="Please Enter Zipcode" type="text" [(ngModel)]="zipCode" id="addLocation" />
+            </div>
+            <div class="input-bar-item">
+                <button class="btn btn-primary" id="addLocationBtn" (click)="getCurrentWeatheryZipCode(zipCode)">
+          Search location
+        </button>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let item of currentWeatherData; let i = index">
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col"> -->
+        <div class="well flex">
+            <div>
+                <h4>
+                    <b>{{ item.name }} - {{ item.zipcode }}</b>
+                    <p>
+                        <a [routerLink]="['/forecast', item.zipcode]" routerLinkActive="router-link-active"><b>Show {{ item.name }} Forecast Report for last 5 Days</b></a
+            >
+          </p><br>
+                </h4>
+                <h4>Current Conditions</h4><a> {{ item.weather[0].main }}</a><br><br>
+                        <h4>Temperatures Today</h4>
+                        <a>
+                            Current {{ item.main.temp - 273.15 | number: "1.0-0" }}℃ - Max {{ item.main.temp_max - 273.15 | number: "1.0-0" }}℃ - Min {{ item.main.temp_min - 273.15 | number: "1.0-0" }}℃
+                        </a>
+                        <!-- <p>
+                    <a [routerLink]="['/forecast', item.zipcode]" routerLinkActive="router-link-active"><b>Show 5-day forecast report for {{ item.name }}</b></a
+          >
+        </p> -->
+                        <!-- </div>
+                    </div>
+                </div> -->
+            </div>
+
+
+            <div>
+                <span class="close" (click)="remove(item.zipcode)" title="Remove">×</span
+        >
+        <img
+          class="weather-img"
+          *ngIf="item.weather[0].main !== 'Clear'"
+          src="https://www.angulartraining.com/images/weather/{{
+            item.weather[0].main | lowercase
+          }}.png"
+        />
+        <img
+          class="weather-img"
+          *ngIf="item.weather[0].main === 'Clear'"
+          src="https://www.angulartraining.com/images/weather/sun.png"
+        />
+      </div>
+    </div>
+  </div>
+</div>
